@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PostsServiceImpl implements PostsService {
 
-    @Override
-    public void getPosts(Example example) {
-
-
-    }
-
+	@Override
+	public void getPosts(Example example) {}
 }

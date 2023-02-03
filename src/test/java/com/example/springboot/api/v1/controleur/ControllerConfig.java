@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Bean;
 
 @TestConfiguration
 public class ControllerConfig {
-    @MockBean private ExampleMapper exampleMapper;
-    @MockBean private PostsService postsService;
+	@MockBean private ExampleMapper exampleMapper;
+	@MockBean private PostsService postsService;
 
-    @Bean
-    ExampleController exampleController() {
-        return new ExampleController(postsService, exampleMapper);
-    }
+	@Bean
+	ExampleController exampleController() {
+		return new ExampleController(postsService, exampleMapper);
+	}
 }

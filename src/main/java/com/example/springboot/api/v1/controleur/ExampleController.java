@@ -5,16 +5,13 @@ import static com.example.springboot.api.shared.ApiPaths.API_END_POINT_EXAMPLE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.example.springboot.api.resources.ExampleRequestResource;
-import java.lang.invoke.MethodHandles;
-import javax.servlet.http.HttpServletRequest;
-
 import com.example.springboot.api.v1.mappers.ExampleMapper;
 import com.example.springboot.service.PostsService;
-import lombok.AllArgsConstructor;
+import java.lang.invoke.MethodHandles;
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
