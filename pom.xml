@@ -98,12 +98,6 @@
                 <artifactId>snakeyaml</artifactId>
                 <version>1.33</version>
             </dependency>
-            <!-- vulerability spring-boot-starter-web -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>6.0.4</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -121,7 +115,13 @@
                             <artifactId>lombok</artifactId>
                             <version>${version.lombok}</version>
                         </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.3.Final</version>
+                        </path>
                     </annotationProcessorPaths>
+                    <generatedSourcesDirectory>${project.build.directory}/generated-sources/</generatedSourcesDirectory>
                 </configuration>
             </plugin>
             <plugin>
