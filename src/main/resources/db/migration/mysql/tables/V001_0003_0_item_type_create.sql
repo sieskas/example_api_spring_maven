@@ -1,0 +1,6 @@
+CREATE TABLE TypeEnum
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    name   NOT NULL,
+    PRIMARY KEY (id)
+);

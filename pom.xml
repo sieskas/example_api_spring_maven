@@ -8,10 +8,10 @@
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example.springboot</groupId>
+    <groupId>com.invoice.springboot</groupId>
     <artifactId>springboot-app</artifactId>
     <version>1.0.0</version>
-    <name>Spring boot example</name>
+    <name>Spring boot invoice</name>
     <description>Example of spring boot app</description>
     <properties>
         <java.version>1.8</java.version>
@@ -88,6 +88,15 @@
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jcache</artifactId>
         </dependency>
     </dependencies>
     <dependencyManagement>

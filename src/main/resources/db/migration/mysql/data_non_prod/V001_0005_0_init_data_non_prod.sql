@@ -1,0 +1,3 @@
+INSERT INTO TypeEnum (name) VALUES ('BOOK');
+INSERT INTO TypeEnum (name) VALUES ('MOVIE');
+INSERT INTO TypeEnum (name) VALUES ('VIDEOGAME');

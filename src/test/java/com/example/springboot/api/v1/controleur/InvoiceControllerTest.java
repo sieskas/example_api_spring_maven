@@ -17,15 +17,15 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @Import(ControllerConfig.class)
-class ExampleControllerTest {
+class InvoiceControllerTest {
 
-	@Autowired private ExampleController exampleController;
+	@Autowired private InvoiceController invoiceController;
 	@Mock private HttpServletRequest httpServletRequest;
 
 	@Test
 	void doExample_ok() {
 		ResponseEntity<Void> reponseEntity =
-				exampleController.doExample(
+				invoiceController.doCreateInvoice(
 						null,
 						ExampleRequestResource.builder()
 								.items(Collections.singletonList(ItemResource.builder().build()))

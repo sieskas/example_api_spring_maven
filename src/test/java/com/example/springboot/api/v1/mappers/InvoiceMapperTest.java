@@ -4,16 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.springboot.api.resources.ExampleRequestResource;
 import com.example.springboot.api.resources.ItemResource;
-import com.example.springboot.domain.model.Example;
+import com.example.springboot.domain.model.Invoice;
 import com.example.springboot.domain.model.TypeEnum;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class ExampleMapperTest {
+class InvoiceMapperTest {
 
-	private final ExampleMapper mapper = new ExampleMapperImpl();
+	private final InvoiceMapper mapper = new InvoiceMapperImpl();
 
 	@Test
 	void toModel_valid() {
@@ -26,17 +26,17 @@ class ExampleMapperTest {
 				ExampleRequestResource.builder().numAccount("0001").items(itemResources).build();
 
 		// when
-		Example example = mapper.toModel(exampleRequestResource);
+		Invoice invoice = mapper.toModel(exampleRequestResource);
 
 		// then
-		assertEquals(exampleRequestResource.getNumAccount(), example.getNumAccount());
-		assertEquals(2, example.getItems().size());
-		assertEquals(itemResources.get(0).getName(), example.getItems().get(0).getName());
-		assertEquals(TypeEnum.BOOK, example.getItems().get(0).getType());
-		assertEquals(itemResources.get(0).getPrice(), example.getItems().get(0).getPrice().toString());
-		assertEquals(itemResources.get(1).getName(), example.getItems().get(1).getName());
-		assertEquals(TypeEnum.MOVIE, example.getItems().get(1).getType());
-		assertEquals(itemResources.get(1).getPrice(), example.getItems().get(1).getPrice().toString());
+		assertEquals(exampleRequestResource.getNumAccount(), invoice.getNumAccount());
+		assertEquals(2, invoice.getItems().size());
+		assertEquals(itemResources.get(0).getName(), invoice.getItems().get(0).getName());
+		assertEquals(TypeEnum.BOOK, invoice.getItems().get(0).getType());
+		assertEquals(itemResources.get(0).getPrice(), invoice.getItems().get(0).getPrice().toString());
+		assertEquals(itemResources.get(1).getName(), invoice.getItems().get(1).getName());
+		assertEquals(TypeEnum.MOVIE, invoice.getItems().get(1).getType());
+		assertEquals(itemResources.get(1).getPrice(), invoice.getItems().get(1).getPrice().toString());
 	}
 
 	@Test

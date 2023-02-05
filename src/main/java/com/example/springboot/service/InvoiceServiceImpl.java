@@ -1,13 +1,13 @@
 package com.example.springboot.service;
 
-import com.example.springboot.domain.model.Example;
+import com.example.springboot.domain.model.Invoice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class PostsServiceImpl implements PostsService {
+public class InvoiceServiceImpl implements InvoiceService {
 
 	@Override
-	public void getPosts(Example example) {}
+	public void createInvoice(Invoice invoice) {}
 }

@@ -1,1 +1,37 @@
+schema:
+  name: db
 
+spring:
+  application:
+    name: Exemple Spring Boot app Maven
+  flyway:
+    locations: ["classpath:db/migration/mysql/tables", "classpath:db/migration/mysql/data_prod"]
+    enabled: true
+    #    placeholder: #sqlServer
+    #      go: go
+    #      datetimeoffset: datetimeoffset
+    #      nonclustered: nonclustered
+    create-schemas: ${schema.name}
+    default-schema: ${schema.name}
+  jpa:
+    hibernate:
+      baselineOnMigrate: true
+      ddl-auto: none
+    properties:
+      javax.persistence.sharedCache.mode: ENABLE_SELECTIVE
+      hibernate:
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region:
+            factory_class: jcache
+        format_sql: true
+        dialect: MySQL5InnoDBDialect
+
+logging:
+  level:
+    ROOT: INFO
+
+#app:
+#  security:
+#    enabled: true

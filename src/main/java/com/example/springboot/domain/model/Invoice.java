@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Example {
+public class Invoice {
 
 	private String numAccount;
 	private List<Item> items;

@@ -5,8 +5,8 @@ import static com.example.springboot.api.shared.ApiPaths.API_END_POINT_EXAMPLE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.example.springboot.api.resources.ExampleRequestResource;
-import com.example.springboot.api.v1.mappers.ExampleMapper;
-import com.example.springboot.service.PostsService;
+import com.example.springboot.api.v1.mappers.InvoiceMapper;
+import com.example.springboot.service.InvoiceService;
 import java.lang.invoke.MethodHandles;
 import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -20,21 +20,21 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(API_BASE_PATH)
 @RequiredArgsConstructor
-public class ExampleController {
+public class InvoiceController {
 	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-	private final PostsService postsService;
-	private final ExampleMapper exampleMapper;
+	private final InvoiceService invoiceService;
+	private final InvoiceMapper exampleMapper;
 
 	@PostMapping(
 			value = API_END_POINT_EXAMPLE,
 			produces = {APPLICATION_JSON_VALUE},
 			consumes = {APPLICATION_JSON_VALUE})
-	public ResponseEntity<Void> doExample(
+	public ResponseEntity<Void> doCreateInvoice(
 			@RequestHeader MultiValueMap<String, String> headers,
 			@RequestBody ExampleRequestResource exampleRequestResource,
 			HttpServletRequest httpServletRequest) {
 
-		postsService.getPosts(exampleMapper.toModel(exampleRequestResource));
+		invoiceService.createInvoice(exampleMapper.toModel(exampleRequestResource));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
