@@ -1,5 +1,5 @@
-CREATE TABLE Invoice
+CREATE TABLE invoice
 (
     num_Account varchar(100) NOT NULL,
-    CONSTRAINT Invoice_PK PRIMARY KEY (num_Account)
+    CONSTRAINT invoice_PK PRIMARY KEY (num_Account)
 )

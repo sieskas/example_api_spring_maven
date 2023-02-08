@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-@Table(name = "Invoice")
+@Table(name = "invoice")
 @EntityListeners(AuditingEntityListener.class)
 public class InvoiceEntity {
 	@Id

@@ -1,0 +1,15 @@
+{
+  "accountNumber": "00000000001",
+    "itemsList": [
+        {
+        "nameItem": "name",
+        "typeItem": "BOOK",
+        "priceItem": "10.0"
+        },
+        {
+        "nameItem": "name2",
+        "typeItem": "MOVIE",
+        "priceItem": "20.0"
+        }
+    ]
+}

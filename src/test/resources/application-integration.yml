@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: Exemple Spring Boot app Maven
+
+  sql:
+    init:
+      data-locations: classpath:init-data-test-integration.sql

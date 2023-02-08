@@ -37,6 +37,6 @@ public class InvoiceController {
 			throws ExampleApiException {
 
 		invoiceService.createInvoice(exampleMapper.toModel(invoiceRequestResource));
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 }
