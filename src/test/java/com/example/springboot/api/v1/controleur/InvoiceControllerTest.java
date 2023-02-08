@@ -2,8 +2,9 @@ package com.example.springboot.api.v1.controleur;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.example.springboot.api.resources.ExampleRequestResource;
+import com.example.springboot.api.resources.InvoiceRequestResource;
 import com.example.springboot.api.resources.ItemResource;
+import com.example.springboot.domain.exceptions.ExampleApiException;
 import java.util.Collections;
 import javax.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Test;
@@ -23,11 +24,11 @@ class InvoiceControllerTest {
 	@Mock private HttpServletRequest httpServletRequest;
 
 	@Test
-	void doExample_ok() {
+	void doExample_ok() throws ExampleApiException {
 		ResponseEntity<Void> reponseEntity =
 				invoiceController.doCreateInvoice(
 						null,
-						ExampleRequestResource.builder()
+						InvoiceRequestResource.builder()
 								.items(Collections.singletonList(ItemResource.builder().build()))
 								.build(),
 						httpServletRequest);

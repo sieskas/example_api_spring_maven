@@ -2,7 +2,7 @@ package com.example.springboot.api.v1.mappers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.example.springboot.api.resources.ExampleRequestResource;
+import com.example.springboot.api.resources.InvoiceRequestResource;
 import com.example.springboot.api.resources.ItemResource;
 import com.example.springboot.domain.model.Invoice;
 import com.example.springboot.domain.model.TypeEnum;
@@ -22,14 +22,14 @@ class InvoiceMapperTest {
 				Arrays.asList(
 						ItemResource.builder().name("name").type("BOOK").price("10.0").build(),
 						ItemResource.builder().name("name2").type("MOVIE").price("20.0").build());
-		ExampleRequestResource exampleRequestResource =
-				ExampleRequestResource.builder().numAccount("0001").items(itemResources).build();
+		InvoiceRequestResource invoiceRequestResource =
+				InvoiceRequestResource.builder().numAccount("0001").items(itemResources).build();
 
 		// when
-		Invoice invoice = mapper.toModel(exampleRequestResource);
+		Invoice invoice = mapper.toModel(invoiceRequestResource);
 
 		// then
-		assertEquals(exampleRequestResource.getNumAccount(), invoice.getNumAccount());
+		assertEquals(invoiceRequestResource.getNumAccount(), invoice.getNumAccount());
 		assertEquals(2, invoice.getItems().size());
 		assertEquals(itemResources.get(0).getName(), invoice.getItems().get(0).getName());
 		assertEquals(TypeEnum.BOOK, invoice.getItems().get(0).getType());
@@ -41,19 +41,19 @@ class InvoiceMapperTest {
 
 	@Test
 	void toModel_null() {
-		assertNull(mapper.toModel((ExampleRequestResource) null));
+		assertNull(mapper.toModel((InvoiceRequestResource) null));
 		assertNull(mapper.toModel((ItemResource) null));
 	}
 
 	@Test
 	void toModel_invalid() {
-		ExampleRequestResource exampleRequestResource =
-				ExampleRequestResource.builder()
+		InvoiceRequestResource invoiceRequestResource =
+				InvoiceRequestResource.builder()
 						.numAccount("0001")
 						.items(
 								Collections.singletonList(
 										ItemResource.builder().name("name3").type("INVALID").price("30.0").build()))
 						.build();
-		assertThrows(IllegalArgumentException.class, () -> mapper.toModel(exampleRequestResource));
+		assertThrows(IllegalArgumentException.class, () -> mapper.toModel(invoiceRequestResource));
 	}
 }

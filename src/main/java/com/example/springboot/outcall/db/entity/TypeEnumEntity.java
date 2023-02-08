@@ -20,5 +20,5 @@ public class TypeEnumEntity {
 	private Integer id;
 
 	@Column(name = "name", nullable = false, length = 100)
-	private String name;
+	private String nameTypeEnum;
 }

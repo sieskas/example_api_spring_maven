@@ -4,8 +4,9 @@ import static com.example.springboot.api.shared.ApiPaths.API_BASE_PATH;
 import static com.example.springboot.api.shared.ApiPaths.API_END_POINT_EXAMPLE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-import com.example.springboot.api.resources.ExampleRequestResource;
+import com.example.springboot.api.resources.InvoiceRequestResource;
 import com.example.springboot.api.v1.mappers.InvoiceMapper;
+import com.example.springboot.domain.exceptions.ExampleApiException;
 import com.example.springboot.service.InvoiceService;
 import java.lang.invoke.MethodHandles;
 import javax.servlet.http.HttpServletRequest;
@@ -31,10 +32,11 @@ public class InvoiceController {
 			consumes = {APPLICATION_JSON_VALUE})
 	public ResponseEntity<Void> doCreateInvoice(
 			@RequestHeader MultiValueMap<String, String> headers,
-			@RequestBody ExampleRequestResource exampleRequestResource,
-			HttpServletRequest httpServletRequest) {
+			@RequestBody InvoiceRequestResource invoiceRequestResource,
+			HttpServletRequest httpServletRequest)
+			throws ExampleApiException {
 
-		invoiceService.createInvoice(exampleMapper.toModel(exampleRequestResource));
+		invoiceService.createInvoice(exampleMapper.toModel(invoiceRequestResource));
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

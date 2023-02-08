@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExampleRequestResource {
+public class InvoiceRequestResource {
 
 	@JsonProperty("accountNumber")
 	private String numAccount;
