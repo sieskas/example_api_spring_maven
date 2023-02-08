@@ -1,0 +1,45 @@
+schema:
+  name: db
+
+spring:
+  application:
+    name: Exemple Spring Boot app Maven
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        format_sql: true
+        default_schema: ${schema.name}
+      show_sql: true
+  flyway:
+    locations: classpath:db/migration/mysql/tables
+    enabled: true
+    schemas: ${schema.name}
+    default-schema: ${schema.name}
+    baseline-on-migrate: true
+    #    placeholder: #sqlServer
+    #      go: ;
+    #      datetimeoffset: timestamp
+    #      nonclustered:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;mode=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  sql:
+    init:
+      platform: h2
+
+logging:
+  level:
+    ROOT: INFO
+    com.example.springboot: debug
+
+#app:
+#  security:
+#    enabled: true
