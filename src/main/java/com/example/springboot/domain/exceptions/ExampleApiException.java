@@ -23,4 +23,12 @@ public class ExampleApiException extends Exception {
 		this.typeError = typeError;
 		this.message = message;
 	}
+
+	public ExampleApiException(MessageError internalError, OutCallException e) {
+		super(internalError.getDescription(), e);
+		this.status = HttpStatus.INTERNAL_SERVER_ERROR;
+		this.messageError = internalError;
+		this.typeError = TypeError.SYSTEM;
+		this.message = e.getMessage();
+	}
 }

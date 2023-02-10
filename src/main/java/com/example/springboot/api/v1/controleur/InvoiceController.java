@@ -1,7 +1,7 @@
 package com.example.springboot.api.v1.controleur;
 
 import static com.example.springboot.api.shared.ApiPaths.API_BASE_PATH;
-import static com.example.springboot.api.shared.ApiPaths.API_END_POINT_EXAMPLE;
+import static com.example.springboot.api.shared.ApiPaths.API_END_POINT_INVOICE;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import com.example.springboot.api.resources.InvoiceRequestResource;
@@ -27,7 +27,7 @@ public class InvoiceController {
 	private final InvoiceMapper exampleMapper;
 
 	@PostMapping(
-			value = API_END_POINT_EXAMPLE,
+			value = API_END_POINT_INVOICE,
 			produces = {APPLICATION_JSON_VALUE},
 			consumes = {APPLICATION_JSON_VALUE})
 	public ResponseEntity<Void> doCreateInvoice(

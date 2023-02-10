@@ -43,3 +43,10 @@ logging:
 #app:
 #  security:
 #    enabled: true
+
+app:
+  outcall:
+    jsonplaceholder:
+      mock:
+        directory: src/resources
+        enabled: true

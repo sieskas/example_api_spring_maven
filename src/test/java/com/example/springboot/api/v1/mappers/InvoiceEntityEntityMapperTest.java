@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class InvoiceMapperTest {
+class InvoiceEntityEntityMapperTest {
 
 	private final InvoiceMapper mapper = new InvoiceMapperImpl();
 

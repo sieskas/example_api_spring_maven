@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/
+    url: "jdbc:mysql://localhost:3306/${schema.name}?createDatabaseIfNotExist=TRUE"
     username: root
     password: admin
   flyway:
@@ -21,7 +21,14 @@ logging:
   level:
     ROOT: INFO
     com.example.springboot: debug
-    org.hibenate:
+    org.hibernate:
       SQL: DEBUG
       type: trace
     org.springframework.cache: debug
+
+app:
+  outcall:
+    jsonplaceholder:
+      mock:
+        enabled: false
+        directory: src/resources

@@ -6,11 +6,13 @@ import com.example.springboot.domain.model.Invoice;
 import com.example.springboot.domain.model.Item;
 import com.example.springboot.outcall.db.entity.InvoiceEntity;
 import com.example.springboot.outcall.db.entity.ItemEntity;
-import com.example.springboot.outcall.db.entity.TypeEnumEntity;
+import com.example.springboot.outcall.db.entity.TypeItemEntity;
 import com.example.springboot.outcall.db.repository.InvoiceRepository;
-import com.example.springboot.outcall.db.repository.TypeEnumRepository;
+import com.example.springboot.outcall.db.repository.TypeItemRepository;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,21 +23,22 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 	private final InvoiceRepository invoiceRepository;
 	private final VerifyInvoiceAccountNumber verifyInvoiceAccountNumber;
-	private final TypeEnumRepository typeEnumRepository;
+	private final TypeItemRepository typeItemRepository;
 
 	@Override
 	public void createInvoice(Invoice invoice) throws ExampleApiException {
 		verifyInvoiceAccountNumber.verifyInvoiceAccountNumber(invoice);
 
-		invoiceRepository.save(createInvoiceEntity(invoice));
+		InvoiceEntity invoiceEntity = createInvoiceEntity(invoice);
+		invoiceRepository.save(invoiceEntity);
 	}
 
 	private InvoiceEntity createInvoiceEntity(Invoice invoice) throws ExampleApiException {
 		List<ItemEntity> itemsEntityList = new ArrayList<>();
 		// TODO Coding mapper
 		for (Item item : invoice.getItems()) {
-			TypeEnumEntity typeEnumEntity =
-					typeEnumRepository.getTypeEnumEntityByNameTypeEnum(item.getType().name());
+			TypeItemEntity typeEnumEntity =
+					typeItemRepository.getTypeItemEntityByName(item.getType().name());
 			if (typeEnumEntity == null) {
 				throw new ExampleApiException(); // "Type not found"
 			}
@@ -50,7 +53,7 @@ public class InvoiceServiceImpl implements InvoiceService {
 
 		return InvoiceEntity.builder()
 				.numAccount(invoice.getNumAccount())
-				.items(itemsEntityList)
+				.itemEntities(new HashSet<>((itemsEntityList)))
 				.build();
 	}
 }

@@ -20,7 +20,7 @@ spring:
     locations: ["classpath:db/migration/mysql/tables", "classpath:db/migration/mysql/data_prod"]
     enabled: true
     schemas: ${schema.name}
-    default-schema: ${schema.name}
+    defaultSchema: ${schema.name}
     #    placeholder: #sqlServer
     #      go: go
     #      datetimeoffset: datetimeoffset
@@ -30,6 +30,12 @@ spring:
 logging:
   level:
     ROOT: INFO
+
+
+app:
+  outcall:
+    jsonplaceholder:
+      url: https://jsonplaceholder.typicode.com
 
 #app:
 #  security:

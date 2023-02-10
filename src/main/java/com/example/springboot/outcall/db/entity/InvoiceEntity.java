@@ -1,10 +1,10 @@
 package com.example.springboot.outcall.db.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -14,12 +14,17 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "invoice")
-@EntityListeners(AuditingEntityListener.class)
 public class InvoiceEntity {
-	@Id
-	@Column(name = "num_Account", nullable = false, length = 100)
-	private String numAccount;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_invoice", nullable = false)
+    private Integer id;
 
-	@OneToMany(mappedBy = "numAccount")
-	private List<ItemEntity> items = new ArrayList<>();
+    @Column(name = "num_account", nullable = false, length = 100)
+    private String numAccount;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_invoice")
+    private Set<ItemEntity> itemEntities = new LinkedHashSet<>();
+
 }
