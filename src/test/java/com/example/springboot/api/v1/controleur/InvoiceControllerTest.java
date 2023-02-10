@@ -18,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @Import(ControllerConfig.class)
-class InvoiceEntityEntityControllerTest {
+class InvoiceControllerTest {
 
 	@Autowired private InvoiceController invoiceController;
 	@Mock private HttpServletRequest httpServletRequest;
