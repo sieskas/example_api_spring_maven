@@ -51,3 +51,6 @@ app:
         port: 0 # 0 = random port
         directory: src/main/resources
         enabled: true
+
+server:
+  port : 8090
