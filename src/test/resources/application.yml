@@ -52,5 +52,5 @@ app:
         directory: src/main/resources
         enabled: true
 
-server:
-  port : 8090
+#server:
+#  port : 8090
