@@ -13,25 +13,24 @@ import reactor.core.publisher.Mono;
 @Component
 public class JsonPaceHolderAdapter implements JsonPaceHolderPort {
 
-    private static final Logger logger = LoggerFactory.getLogger(JsonPaceHolderAdapter.class);
+	private static final Logger logger = LoggerFactory.getLogger(JsonPaceHolderAdapter.class);
 
-    private WebClient webClient;
+	private WebClient webClient;
 
-    public JsonPaceHolderAdapter(@Qualifier("jsonPlaceHolderWebClient") WebClient webClient) {
-        this.webClient = webClient;
-    }
-    @Override
-    public PostReponseResource getPost(int id) throws OutCallException {
-        try {
-            Mono<PostReponseResource> postReponseResourceMono = webClient.get()
-                    .uri("/posts/{id}", id)
-                    .retrieve()
-                    .bodyToMono(PostReponseResource.class);
-            return postReponseResourceMono.block(); // mapper add
-        } catch (WebClientResponseException e) {
-            throw new OutCallException(e.getStatusCode(), e.getMessage());
-        } catch (Exception e) {
-            throw new OutCallException(null, e.getMessage());
-        }
-    }
+	public JsonPaceHolderAdapter(@Qualifier("jsonPlaceHolderWebClient") WebClient webClient) {
+		this.webClient = webClient;
+	}
+
+	@Override
+	public PostReponseResource getPost(int id) throws OutCallException {
+		try {
+			Mono<PostReponseResource> postReponseResourceMono =
+					webClient.get().uri("/posts/{id}", id).retrieve().bodyToMono(PostReponseResource.class);
+			return postReponseResourceMono.block(); // mapper add
+		} catch (WebClientResponseException e) {
+			throw new OutCallException(e.getStatusCode(), e.getMessage());
+		} catch (Exception e) {
+			throw new OutCallException(null, e.getMessage());
+		}
+	}
 }

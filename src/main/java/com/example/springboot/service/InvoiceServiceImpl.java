@@ -12,11 +12,10 @@ import com.example.springboot.outcall.db.repository.TypeItemRepository;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-//TODO Coding Junit test
+// TODO Coding Junit test
 @Service
 @RequiredArgsConstructor
 public class InvoiceServiceImpl implements InvoiceService {

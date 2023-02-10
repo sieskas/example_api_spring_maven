@@ -12,15 +12,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PostReponseResource {
 
-    @JsonProperty("userId")
-    private int userId;
+	@JsonProperty("userId")
+	private int userId;
 
-    @JsonProperty("id")
-    private int id;
+	@JsonProperty("id")
+	private int id;
 
-    @JsonProperty("title")
-    private String title;
+	@JsonProperty("title")
+	private String title;
 
-    @JsonProperty("body")
-    private String body;
+	@JsonProperty("body")
+	private String body;
 }

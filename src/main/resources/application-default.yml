@@ -31,4 +31,4 @@ app:
     jsonplaceholder:
       mock:
         enabled: false
-        directory: src/resources
+        directory: src/main/resources

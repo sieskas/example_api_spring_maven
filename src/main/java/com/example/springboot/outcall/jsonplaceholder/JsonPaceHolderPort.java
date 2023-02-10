@@ -5,5 +5,5 @@ import com.example.springboot.domain.exceptions.OutCallException;
 
 public interface JsonPaceHolderPort {
 
-    PostReponseResource getPost(int id) throws OutCallException;
+	PostReponseResource getPost(int id) throws OutCallException;
 }

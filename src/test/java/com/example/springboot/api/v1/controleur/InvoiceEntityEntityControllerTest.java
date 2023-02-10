@@ -32,6 +32,6 @@ class InvoiceEntityEntityControllerTest {
 								.items(Collections.singletonList(ItemResource.builder().build()))
 								.build(),
 						httpServletRequest);
-		assertEquals(HttpStatus.OK, reponseEntity.getStatusCode());
+		assertEquals(HttpStatus.CREATED, reponseEntity.getStatusCode());
 	}
 }
