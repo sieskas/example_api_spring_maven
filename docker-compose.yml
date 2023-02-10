@@ -49,7 +49,7 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
-      - ~/jenkins:/var/jenkins_home
+      - jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/local/bin/docker:/usr/local/bin/docker
 
@@ -61,3 +61,4 @@ volumes:
   sonarqube_db:
   sonarqube_extensions:
   my-db:
+  jenkins:
