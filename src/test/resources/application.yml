@@ -48,5 +48,6 @@ app:
   outcall:
     jsonplaceholder:
       mock:
-        directory: src/resources
+        port: 0 # 0 = random port
+        directory: src/main/resources
         enabled: true
