@@ -11,14 +11,26 @@
     <groupId>com.invoice.springboot</groupId>
     <artifactId>springboot-app</artifactId>
     <version>1.0.0</version>
-    <name>Spring Boot Example</name>
+    <name>${product}</name>
     <description>Example of spring boot app</description>
     <properties>
+        <product>Spring Boot Example</product>
         <java.version>11</java.version>
         <version.cucumber>7.11.1</version.cucumber>
         <version.lombok>1.18.24</version.lombok>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <sonar.projectName>${product}</sonar.projectName>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.language>java</sonar.language>
+        <sonar.dependencyCheck.reportPath>${project.basedir}/target/dependency-check-report.xml</sonar.dependencyCheck.reportPath>
+        <sonar.dependencyCheck.htmlReportPath>${project.basedir}/target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+        <sonar.exclusions>
+            **/resources/**,
+        </sonar.exclusions>
+        <cucumberJsonReportPath>${project.build.directory}/cucumber-report.json</cucumberJsonReportPath>
+        <cucumberHtmlReportPath>${project.build.directory}/cucumber-report.html</cucumberHtmlReportPath>
     </properties>
     <dependencies>
         <!-- Spring Boot -->
@@ -250,6 +262,11 @@
                 <configuration>
                     <outputDirectory>${project.build.directory}/reports</outputDirectory>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
             </plugin>
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
