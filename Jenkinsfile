@@ -6,9 +6,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean install surefire-report:report'
-        sh 'tree'
+        Bat './mvnw clean install surefire-report:report'
+        Bat 'tree'
       }
+    }
+  }
+  post {
+    success {
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site', reportFiles: 'surefire-report.html', reportName: 'Surefire Report', reportTitles: '', useWrapperFileDirectly: true])
     }
   }
 }
