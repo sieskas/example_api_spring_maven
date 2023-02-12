@@ -1,15 +1,12 @@
 pipeline {
   agent any
-    tools{
-          maven 'Maven'
-      }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
     stage('Build') {
       steps {
-        bat 'mvn clean install surefire-report:report'
+        bat './mvnw clean install surefire-report:report'
         bat 'tree'
       }
     }
