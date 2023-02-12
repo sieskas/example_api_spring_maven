@@ -1,12 +1,15 @@
 pipeline {
   agent any
+  tools {
+    maven 'Maven 3.9.0'
+  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
     stage('Build') {
       steps {
-        bat './mvnw surefire-report:report'
+        bat 'mvn surefire-report:report'
         bat 'tree'
       }
     }
