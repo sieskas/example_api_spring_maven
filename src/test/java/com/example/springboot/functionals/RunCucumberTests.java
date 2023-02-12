@@ -8,7 +8,7 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("com.example.springboot.functionals")
+@SelectClasspathResource("com/example/springboot/functionals")
 @ConfigurationParameter(
 		key = Constants.GLUE_PROPERTY_NAME,
 		value = "com.example.springboot.functionals")

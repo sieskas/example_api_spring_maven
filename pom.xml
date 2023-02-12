@@ -25,11 +25,15 @@
         <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.language>java</sonar.language>
-        <sonar.dependencyCheck.reportPath>${basedir}/target/dependency-check-report.xml</sonar.dependencyCheck.reportPath>
-        <sonar.dependencyCheck.htmlReportPath>${basedir}/target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
-        <sonar.exclusions>
-            **/resources/**,
-        </sonar.exclusions>
+        <sonar.dependencyCheck.reportPath>target/dependency-check-report.xml</sonar.dependencyCheck.reportPath>
+        <sonar.dependencyCheck.xmlReportPath>target/dependency-check-report.xml</sonar.dependencyCheck.xmlReportPath>
+        <sonar.dependencyCheck.htmlReportPath>target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+        <sonar.dependencyCheck.summarize>true</sonar.dependencyCheck.summarize>
+<!--        <sonar.exclusions>-->
+<!--            **/resources/**,-->
+<!--        </sonar.exclusions>-->
+        <sonar.host.url>http://localhost:9000/</sonar.host.url>
+        <sonar.login>squ_8c59ad308fd9cd4e10b4ef9f3c7feba24171fcbe</sonar.login>
         <cucumberJsonReportPath>${project.build.directory}/cucumber-report.json</cucumberJsonReportPath>
         <cucumberHtmlReportPath>${project.build.directory}/cucumber-report.html</cucumberHtmlReportPath>
     </properties>
@@ -226,17 +230,21 @@
                     </execution>
                 </executions>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <version>3.5.0</version>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>8.0.2</version>
-                <executions>
-                <execution>
-                    <goals>
-                        <goal>check</goal>
-                    </goals>
-                </execution>
-                </executions>
+                <version>7.1.0</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
 <!--                <configuration>-->
 <!--                    <suppressionFiles>-->
 <!--                        <suppressionFile>dependency-suppressions.xml</suppressionFile>-->

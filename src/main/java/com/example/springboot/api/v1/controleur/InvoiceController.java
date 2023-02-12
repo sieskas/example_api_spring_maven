@@ -9,6 +9,7 @@ import com.example.springboot.api.v1.mappers.InvoiceMapper;
 import com.example.springboot.domain.exceptions.ExampleApiException;
 import com.example.springboot.service.InvoiceService;
 import java.lang.invoke.MethodHandles;
+import java.sql.*;
 import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -35,6 +36,9 @@ public class InvoiceController {
 			@RequestBody InvoiceRequestResource invoiceRequestResource,
 			HttpServletRequest httpServletRequest)
 			throws ExampleApiException {
+
+		String a = null;
+		a.toString();
 
 		invoiceService.createInvoice(exampleMapper.toModel(invoiceRequestResource));
 		return new ResponseEntity<>(HttpStatus.CREATED);
