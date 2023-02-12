@@ -6,8 +6,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        Bat 'mvn clean install surefire-report:report'
-        Bat 'tree'
+        bat 'mvn clean install surefire-report:report'
+        bat 'tree'
       }
     }
   }
