@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    maven 'Maven 3.9.0'
+    maven 'maven 3.9.0'
   }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
